@@ -27,7 +27,7 @@ export default class Board {
     line.setAttributeNS(null, 'stroke-dasharray', '20, 15');
     line.setAttributeNS(null, 'stroke-width', '4');
 
-    
+
 
     svg.appendChild(rect);
     svg.appendChild(line);

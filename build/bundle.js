@@ -476,9 +476,9 @@
 
 			this.board = new _Board2.default(this.width, this.height);
 
-			this.player1 = new _Paddle2.default(this.height, this.paddleWidth, this.paddleHeight, this.boardGap, (this.height - this.paddleHeight) / 2);
+			this.player1 = new _Paddle2.default(this.height, this.paddleWidth, this.paddleHeight, this.boardGap, (this.height - this.paddleHeight) / 2, _settings.KEYS.a, _settings.KEYS.z);
 
-			this.player2 = new _Paddle2.default(this.height, this.paddleWidth, this.paddleHeight, this.width - this.boardGap - this.paddleWidth, (this.height - this.paddleHeight) / 2);
+			this.player2 = new _Paddle2.default(this.height, this.paddleWidth, this.paddleHeight, this.width - this.boardGap - this.paddleWidth, (this.height - this.paddleHeight) / 2, _settings.KEYS.up, _settings.KEYS.down);
 		}
 
 		_createClass(Game, [{
@@ -515,6 +515,12 @@
 	  value: true
 	});
 	var SVG_NS = exports.SVG_NS = 'http://www.w3.org/2000/svg';
+	var KEYS = exports.KEYS = {
+	  a: 65, // player 1 up key
+	  z: 90, // player 1 down key
+	  up: 38, // player 2 up key
+	  down: 40, // player 2 down key
+	  spaceBar: 32 };
 
 /***/ },
 /* 11 */
@@ -595,17 +601,28 @@
 	        this.y = y;
 	        this.speed = 10;
 	        this.score = 0;
+
+	        document.addEventListener('keydown', function (event) {
+	            switch (event.keyCode) {
+	                case up:
+	                    console.log('up');
+	                    break;
+	                case down:
+	                    console.log('down');
+	                    break;
+	            }
+	        });
 	    }
 
 	    _createClass(Paddle, [{
 	        key: 'render',
 	        value: function render(svg) {
 	            var paddle = document.createElementNS(_settings.SVG_NS, 'rect');
-	            paddle.setAttributeNS(this.height);
-	            paddle.setAttributeNS(this.width);
-	            paddle.setAttributeNS('fill', '#ffffff');
-	            paddle.setAttributeNS(this.x);
-	            paddle.setAttributeNS(this.y);
+	            paddle.setAttributeNS(null, 'height', this.height);
+	            paddle.setAttributeNS(null, 'width', this.width);
+	            paddle.setAttributeNS(null, 'fill', '#ffffff');
+	            paddle.setAttributeNS(null, 'x', this.x);
+	            paddle.setAttributeNS(null, 'y', this.y);
 
 	            svg.appendChild(paddle);
 	        }
