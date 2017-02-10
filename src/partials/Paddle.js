@@ -1,4 +1,4 @@
-import { SVG_NS} from '../settings';
+import { SVG_NS } from '../settings';
 
 export default class Paddle {
 
@@ -24,12 +24,12 @@ export default class Paddle {
         });
     }
 
-    up(){
-        this.y = Math.max(0,this.y - this.speed);
+    up() {
+        this.y = Math.max(0, this.y - this.speed);
 
     }
 
-    down(){
+    down() {
         this.y = Math.min(this.boardHeight - this.height, this.y + this.speed);
 
     }
