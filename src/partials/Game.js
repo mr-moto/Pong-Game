@@ -67,20 +67,20 @@ export default class Game {
 			return;
 		}
 
-			this.gameElement.innerHTML = '';
+		this.gameElement.innerHTML = '';
 
-			let svg = document.createElementNS(SVG_NS, 'svg');
-			svg.setAttributeNS(null, 'width', this.width);
-			svg.setAttributeNS(null, 'height', this.height);
-			svg.setAttributeNS(null, 'viewbox', `0 0 ${this.width} ${this.height}`);
-			this.gameElement.appendChild(svg);
+		let svg = document.createElementNS(SVG_NS, 'svg');
+		svg.setAttributeNS(null, 'width', this.width);
+		svg.setAttributeNS(null, 'height', this.height);
+		svg.setAttributeNS(null, 'viewbox', `0 0 ${this.width} ${this.height}`);
+		this.gameElement.appendChild(svg);
 
-			this.board.render(svg);
+		this.board.render(svg);
 
-			this.player1.render(svg);
-			this.player2.render(svg);
+		this.player1.render(svg);
+		this.player2.render(svg);
 
-			this.ball.render(svg);
+		this.ball.render(svg);
 	}
 
 }
