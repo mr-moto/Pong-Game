@@ -10,19 +10,22 @@ export default class Ball {
 
 
         this.ping = new Audio('public/sounds/pong-01.wav');
-
+        
         this.reset();
+
     }
 
+
+
+
+
     wallCollision() {
-        const hitLeft = this.x - this.radius <= 0;
-        const hitRight = this.x + this.radius >= this.boardWidth;
+        // const hitLeft = this.x - this.radius <= 0;
+        // const hitRight = this.x + this.radius >= this.boardWidth;
         const hitTop = this.y - this.radius <= 0;
         const hitBottom = this.y + this.radius >= this.boardHeight;
 
-        if (hitLeft || hitRight) {
-            this.vx = -this.vx;
-        } else if (hitTop || hitBottom) {
+        if (hitTop || hitBottom) {
             this.vy = -this.vy;
         }
     }
@@ -95,8 +98,6 @@ export default class Ball {
         ball.setAttributeNS(null, 'cx', this.x);
         ball.setAttributeNS(null, 'cy', this.y);
         ball.setAttributeNS(null, 'fill', this.fill);
-
-
         svg.appendChild(ball);
 
         const rightGoal = this.x + this.radius >= this.boardWidth;
