@@ -30,8 +30,8 @@ export default class Game {
 			this.paddleHeight,
 			(this.width - this.boardGap - this.paddleWidth),
 			((this.height - this.paddleHeight) / 2),
-			KEYS.up,
-			KEYS.down,
+			KEYS.k,
+			KEYS.m,
 			this.fill = '#ff00ff'
 		);
 
@@ -48,7 +48,12 @@ export default class Game {
 		this.ball = new Ball(
 			this.radius,
 			this.width,
-			this.height
+			this.height,
+		);
+		this.ballcopy = new Ball(
+			this.radius,
+			this.width,
+			this.height,
 		);
 
 		this.score1 = new Score((this.width/2) + 15, 40, 20, this.fill = '#ff00ff');

@@ -8,6 +8,7 @@ export default class Ball {
         this.boardHeight = boardHeight;
         this.direction = 1;
 
+
         this.ping = new Audio('public/sounds/pong-01.wav');
 
         this.reset();
@@ -38,6 +39,7 @@ export default class Ball {
                 && this.y <= bottomY
             ) {
                 this.vx = -this.vx;
+                this.fill = '#ff00ff';
                 this.ping.play();
             }
         } else {
@@ -51,6 +53,7 @@ export default class Ball {
                 && this.y <= bottomY
             ) {
                 this.vx = -this.vx;
+                this.fill = '#32cd32';
                 this.ping.play();
             }
         }
@@ -63,6 +66,7 @@ export default class Ball {
         this.y = this.boardHeight / 2;
 
         this.vy = 0
+        this.fill = '#ffffff'
 
         while (this.vy === 0) {
             this.vy = Math.floor(Math.random() * 10 - 5);
@@ -90,7 +94,7 @@ export default class Ball {
         ball.setAttributeNS(null, 'r', this.radius);
         ball.setAttributeNS(null, 'cx', this.x);
         ball.setAttributeNS(null, 'cy', this.y);
-        ball.setAttributeNS(null, 'fill', '#ffffff');
+        ball.setAttributeNS(null, 'fill', this.fill);
 
 
         svg.appendChild(ball);
