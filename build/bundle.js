@@ -491,13 +491,13 @@
 
 			this.board = new _Board2.default(this.width, this.height);
 
-			this.player1 = new _Paddle2.default(this.height, this.paddleWidth, this.paddleHeight, this.boardGap, (this.height - this.paddleHeight) / 2, _settings.KEYS.a, _settings.KEYS.z);
+			this.player1 = new _Paddle2.default(this.height, this.paddleWidth, this.paddleHeight, this.width - this.boardGap - this.paddleWidth, (this.height - this.paddleHeight) / 2, _settings.KEYS.up, _settings.KEYS.down, this.fill = '#ff00ff');
 
-			this.player2 = new _Paddle2.default(this.height, this.paddleWidth, this.paddleHeight, this.width - this.boardGap - this.paddleWidth, (this.height - this.paddleHeight) / 2, _settings.KEYS.up, _settings.KEYS.down);
+			this.player2 = new _Paddle2.default(this.height, this.paddleWidth, this.paddleHeight, this.boardGap, (this.height - this.paddleHeight) / 2, _settings.KEYS.a, _settings.KEYS.z, this.fill = '#32cd32');
 			this.ball = new _Ball2.default(this.radius, this.width, this.height);
 
-			this.score1 = new _Score2.default(this.width / 2 - 0, 40, 40);
-			this.score2 = new _Score2.default(this.width / 2 - 30, 40, 40);
+			this.score1 = new _Score2.default(this.width / 2 + 15, 40, 20, this.fill = '#ff00ff');
+			this.score2 = new _Score2.default(this.width / 2 - 70, 40, 20, this.fill = '#32cd32');
 
 			document.addEventListener('keydown', function (event) {
 				switch (event.keyCode) {
@@ -531,8 +531,8 @@
 
 				this.ball.render(svg, this.player1, this.player2);
 
-				this.score1.render(svg, this.player1.score);
-				this.score2.render(svg, this.player2.score);
+				this.score1.render(svg, this.player1.score + ' :P1');
+				this.score2.render(svg, 'P2: ' + this.player2.score);
 			}
 		}]);
 
@@ -552,10 +552,10 @@
 	});
 	var SVG_NS = exports.SVG_NS = 'http://www.w3.org/2000/svg';
 	var KEYS = exports.KEYS = {
-	    a: 65, // player 1 up key
-	    z: 90, // player 1 down key
-	    up: 38, // player 2 up key
-	    down: 40, // player 2 down key
+	    a: 65, // player 2 up key
+	    z: 90, // player 2 down key
+	    up: 38, // player 1 up key
+	    down: 40, // player 1 down key
 	    spaceBar: 32 };
 
 /***/ },
@@ -589,7 +589,7 @@
 	            var rect = document.createElementNS(_settings.SVG_NS, 'rect');
 	            rect.setAttributeNS(null, 'width', 512);
 	            rect.setAttributeNS(null, 'height', 256);
-	            rect.setAttributeNS(null, 'fill', '#353535');
+	            rect.setAttributeNS(null, 'fill', '#454545');
 
 	            var line = document.createElementNS(_settings.SVG_NS, 'line');
 	            line.setAttributeNS(null, 'x1', this.width / 2);
@@ -627,7 +627,7 @@
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 	var Paddle = function () {
-	    function Paddle(boardHeight, width, height, x, y, up, down) {
+	    function Paddle(boardHeight, width, height, x, y, up, down, fill) {
 	        var _this = this;
 
 	        _classCallCheck(this, Paddle);
@@ -639,6 +639,7 @@
 	        this.y = y;
 	        this.speed = 30;
 	        this.score = 0;
+	        this.fill = fill;
 
 	        document.addEventListener('keydown', function (event) {
 	            switch (event.keyCode) {
@@ -677,7 +678,7 @@
 	            var paddle = document.createElementNS(_settings.SVG_NS, 'rect');
 	            paddle.setAttributeNS(null, 'height', this.height);
 	            paddle.setAttributeNS(null, 'width', this.width);
-	            paddle.setAttributeNS(null, 'fill', '#ffffff');
+	            paddle.setAttributeNS(null, 'fill', this.fill);
 	            paddle.setAttributeNS(null, 'x', this.x);
 	            paddle.setAttributeNS(null, 'y', this.y);
 
@@ -740,7 +741,7 @@
 	        key: 'paddleCollision',
 	        value: function paddleCollision(player1, player2) {
 	            if (this.vx > 0) {
-	                var paddle = player2.coordinates(player2.x, player2.y, player2.width, player2.height);
+	                var paddle = player1.coordinates(player1.x, player1.y, player1.width, player1.height);
 
 	                var _paddle = _slicedToArray(paddle, 4),
 	                    leftX = _paddle[0],
@@ -753,7 +754,7 @@
 	                    this.ping.play();
 	                }
 	            } else {
-	                var _paddle2 = player1.coordinates(player1.x, player1.y, player1.width, player1.height);
+	                var _paddle2 = player2.coordinates(player2.x, player2.y, player2.width, player2.height);
 
 	                var _paddle3 = _slicedToArray(_paddle2, 4),
 	                    _leftX = _paddle3[0],
@@ -838,12 +839,14 @@
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 	var Score = function () {
-	    function Score(x, y, size) {
+	    function Score(x, y, size, fill, player) {
 	        _classCallCheck(this, Score);
 
 	        this.x = x;
 	        this.y = y;
 	        this.size = size;
+	        this.fill = fill;
+	        this.player = player;
 	    }
 
 	    _createClass(Score, [{
@@ -854,7 +857,7 @@
 	            text.setAttributeNS(null, 'y', this.y);
 	            text.setAttributeNS(null, 'font-family', 'Silkscreen Web');
 	            text.setAttributeNS(null, 'font-size', this.size);
-	            text.setAttributeNS(null, 'fill', '#ffffff');
+	            text.setAttributeNS(null, 'fill', this.fill);
 	            text.innerHTML = score;
 	            svg.appendChild(text);
 	        }

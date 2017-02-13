@@ -28,20 +28,22 @@ export default class Game {
 			this.height,
 			this.paddleWidth,
 			this.paddleHeight,
-			this.boardGap,
+			(this.width - this.boardGap - this.paddleWidth),
 			((this.height - this.paddleHeight) / 2),
-			KEYS.a,
-			KEYS.z
+			KEYS.up,
+			KEYS.down,
+			this.fill = '#ff00ff'
 		);
 
 		this.player2 = new Paddle(
 			this.height,
 			this.paddleWidth,
 			this.paddleHeight,
-			(this.width - this.boardGap - this.paddleWidth),
+			this.boardGap,
 			((this.height - this.paddleHeight) / 2),
-			KEYS.up,
-			KEYS.down
+			KEYS.a,
+			KEYS.z,
+			this.fill = '#32cd32'
 		);
 		this.ball = new Ball(
 			this.radius,
@@ -49,8 +51,8 @@ export default class Game {
 			this.height
 		);
 
-		this.score1 = new Score((this.width/2) + 15, 40, 20);
-		this.score2 = new Score((this.width/2) - 70, 40, 20);
+		this.score1 = new Score((this.width/2) + 15, 40, 20, this.fill = '#ff00ff');
+		this.score2 = new Score((this.width/2) - 70, 40, 20, this.fill = '#32cd32');
 
 		document.addEventListener('keydown', event => {
 			switch (event.keyCode) {
@@ -85,8 +87,8 @@ export default class Game {
 
 		this.ball.render(svg, this.player1, this.player2);
 
-		this.score1.render(svg, `${this.player1.score} P1`);
-		this.score2.render(svg, `P2 ${this.player2.score}`);
+		this.score1.render(svg, `${this.player1.score} :P1`);
+		this.score2.render(svg, `P2: ${this.player2.score}`);
 
 
 
