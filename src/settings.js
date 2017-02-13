@@ -6,5 +6,6 @@ export const KEYS = {
     m: 77,     // player 1 down key
     n: 78,      // p1 extra ball
     x: 88,      // p2 extra ball
+    enter: 13,
     spaceBar: 32, // pause
 }

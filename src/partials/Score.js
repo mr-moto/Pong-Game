@@ -17,5 +17,9 @@ export default class Score {
         text.setAttributeNS(null, 'fill', this.fill);
         text.innerHTML = score
         svg.appendChild(text);
+
+
+
+
     }
 }
