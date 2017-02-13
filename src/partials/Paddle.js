@@ -8,7 +8,7 @@ export default class Paddle {
         this.height = height;
         this.x = x;
         this.y = y;
-        this.speed = 10;
+        this.speed = 30;
         this.score = 0;
 
 
@@ -26,13 +26,21 @@ export default class Paddle {
 
     up() {
         this.y = Math.max(0, this.y - this.speed);
-
     }
 
     down() {
         this.y = Math.min(this.boardHeight - this.height, this.y + this.speed);
-
     }
+
+    coordinates(x, y, width, height) {
+        let leftX = x;
+        let rightX = x + width;
+        let topY = y;
+        let bottomY = y + height;
+        return [leftX, rightX, topY, bottomY];
+    }
+
+
 
 
     render(svg) {
@@ -44,8 +52,6 @@ export default class Paddle {
         paddle.setAttributeNS(null, 'y', this.y);
 
         svg.appendChild(paddle);
-
-
     }
 
 
