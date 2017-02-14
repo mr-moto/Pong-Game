@@ -1,6 +1,6 @@
 import { SVG_NS } from '../settings';
 
-export default class Score {
+export default class Gameover {
     constructor(x, y, size, fill, player) {
         this.x = x;
         this.y = y;

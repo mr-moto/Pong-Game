@@ -97,7 +97,7 @@
 
 
 	// module
-	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/ \n   v2.0 | 20110126\n   License: none (public domain)\n*/\n\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed, \nfigure, figcaption, footer, header, hgroup, \nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n\tmargin: 0;\n\tpadding: 0;\n\tborder: 0;\n\tfont-size: 100%;\n\tfont: inherit;\n\tvertical-align: baseline;\n}\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure, \nfooter, header, hgroup, menu, nav, section {\n\tdisplay: block;\n}\nbody {\n\tline-height: 1;\n}\nol, ul {\n\tlist-style: none;\n}\nblockquote, q {\n\tquotes: none;\n}\nblockquote:before, blockquote:after,\nq:before, q:after {\n\tcontent: '';\n\tcontent: none;\n}\ntable {\n\tborder-collapse: collapse;\n\tborder-spacing: 0;\n}\n\n/**\n * FONTS\n */\n\n@font-face {\n  font-family: 'Silkscreen Web';\n  src: url(" + __webpack_require__(4) + ");\n  src: url(" + __webpack_require__(4) + "?#iefix) format('embedded-opentype'),\n    url(" + __webpack_require__(5) + ") format('woff'),\n    url(" + __webpack_require__(6) + ") format('truetype'),\n    url(" + __webpack_require__(7) + "#silkscreennormal) format('svg');\n  font-weight: normal;\n  font-style: normal;\n}\n\n/**\n * GAME\n */\n\nhtml {\n  font-size: 16px;\n}\n\nbody {\n  align-items: center;\n  display: flex;\n  font-family: 'Silkscreen Web', monotype;\n  height: 100vh;\n  justify-content: center;\n  width: 100%;\n}\n\nh1 {\n  font-size: 2.5rem;\n  margin-bottom: 1rem; \n  text-align: center;\n}\n", ""]);
+	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/ \n   v2.0 | 20110126\n   License: none (public domain)\n*/\n\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed, \nfigure, figcaption, footer, header, hgroup, \nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n\tmargin: 0;\n\tpadding: 0;\n\tborder: 0;\n\tfont-size: 100%;\n\tfont: inherit;\n\tvertical-align: baseline;\n}\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure, \nfooter, header, hgroup, menu, nav, section {\n\tdisplay: block;\n}\nbody {\n\tline-height: 1;\n}\nol, ul {\n\tlist-style: none;\n}\nblockquote, q {\n\tquotes: none;\n}\nblockquote:before, blockquote:after,\nq:before, q:after {\n\tcontent: '';\n\tcontent: none;\n}\ntable {\n\tborder-collapse: collapse;\n\tborder-spacing: 0;\n}\n\n/**\n * FONTS\n */\n\n@font-face {\n  font-family: 'Silkscreen Web';\n  src: url(" + __webpack_require__(4) + ");\n  src: url(" + __webpack_require__(4) + "?#iefix) format('embedded-opentype'),\n    url(" + __webpack_require__(5) + ") format('woff'),\n    url(" + __webpack_require__(6) + ") format('truetype'),\n    url(" + __webpack_require__(7) + "#silkscreennormal) format('svg');\n  font-weight: normal;\n  font-style: normal;\n}\n\n/**\n * GAME\n */\n\nhtml {\n  font-size: 16px;\n  text-transform: uppercase;\n}\n\nbody {\n  align-items: center;\n  display: flex;\n  font-family: 'Silkscreen Web', monotype;\n  height: 100vh;\n  justify-content: center;\n  width: 100%;\n}\n\nh1 {\n  font-size: 2.5rem;\n  margin-bottom: 1rem; \n  text-align: center;\n}\n", ""]);
 
 	// exports
 
@@ -464,6 +464,10 @@
 
 	var _Score2 = _interopRequireDefault(_Score);
 
+	var _Gameover = __webpack_require__(15);
+
+	var _Gameover2 = _interopRequireDefault(_Gameover);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -480,29 +484,43 @@
 
 			this.boardGap = 10;
 
-			this.paddleWidth = 8;
+			this.paddleWidth = 4;
 			this.paddleHeight = 56;
 
 			this.radius = 8;
 
 			this.gameElement = document.getElementById(this.element);
 
+			this.gameStart = true;
 			this.pause = false;
 
 			this.board = new _Board2.default(this.width, this.height);
 
-			this.player1 = new _Paddle2.default(this.height, this.paddleWidth, this.paddleHeight, this.width - this.boardGap - this.paddleWidth, (this.height - this.paddleHeight) / 2, _settings.KEYS.up, _settings.KEYS.down, this.fill = '#ff00ff');
+			this.player1 = new _Paddle2.default(this.height, this.paddleWidth, this.paddleHeight, this.width - this.boardGap - this.paddleWidth, (this.height - this.paddleHeight) / 2, _settings.KEYS.k, _settings.KEYS.m, this.fill = '#ff00ff');
 
 			this.player2 = new _Paddle2.default(this.height, this.paddleWidth, this.paddleHeight, this.boardGap, (this.height - this.paddleHeight) / 2, _settings.KEYS.a, _settings.KEYS.z, this.fill = '#32cd32');
 			this.ball = new _Ball2.default(this.radius, this.width, this.height);
+			this.ball2 = new _Ball2.default(this.radius, this.width, this.height);
 
 			this.score1 = new _Score2.default(this.width / 2 + 15, 40, 20, this.fill = '#ff00ff');
 			this.score2 = new _Score2.default(this.width / 2 - 70, 40, 20, this.fill = '#32cd32');
 
+			this.winLosep1 = new _Gameover2.default(this.width * .10, 40, 20, this.fill = '#32cd32');
+			this.winLosep2 = new _Gameover2.default(this.width * 0.75, 40, 20, this.fill = '#ff00ff');
+			this.winner = new _Gameover2.default(this.width / 2 - 50, this.height / 2, 20, this.fill = '#FF0');
+			this.restart = new _Gameover2.default(this.width / 2 - 170, this.height * 0.75, 20, this.fill = '#FF0');
+
+			this.newball = false;
 			document.addEventListener('keydown', function (event) {
 				switch (event.keyCode) {
 					case _settings.KEYS.spaceBar:
 						_this.pause = !_this.pause;
+						break;
+					case _settings.KEYS.n:
+						_this.newball = true;
+						break;
+					case _settings.KEYS.spaceBar:
+						_this.gameStart = false;
 						break;
 				}
 			});
@@ -511,11 +529,11 @@
 		_createClass(Game, [{
 			key: 'render',
 			value: function render() {
+				var _this2 = this;
 
 				if (this.pause) {
 					return;
 				}
-
 				this.gameElement.innerHTML = '';
 
 				var svg = document.createElementNS(_settings.SVG_NS, 'svg');
@@ -529,10 +547,52 @@
 				this.player1.render(svg);
 				this.player2.render(svg);
 
-				this.ball.render(svg, this.player1, this.player2);
-
 				this.score1.render(svg, this.player1.score + ' :P1');
 				this.score2.render(svg, 'P2: ' + this.player2.score);
+
+				this.ball.render(svg, this.player1, this.player2);
+				if (this.gameStart) {
+					this.ball.direction = 1;
+					return;
+				}
+
+				if (this.newball) {
+					this.ball2.render(svg, this.player1, this.player2);
+				}
+
+				if (this.player1.score === 2) {
+					this.winLosep1.render(svg, 'loser');
+					this.winLosep2.render(svg, 'winner');
+					this.winner.render(svg, 'p1 wins');
+					this.restart.render(svg, 'press enter to play again');
+					this.pause = true;
+					document.addEventListener('keydown', function (event) {
+						switch (event.keyCode) {
+							case _settings.KEYS.enter:
+								_this2.player1.score = 0;
+								_this2.player2.score = 0;
+								_this2.newball = false;
+								_this2.pause = false;
+
+						}
+					});
+				}
+				if (this.player2.score === 2) {
+					this.winLosep2.render(svg, 'loser');
+					this.winLosep1.render(svg, 'winner');
+					this.winner.render(svg, 'p2 wins');
+					this.restart.render(svg, 'press enter to play again');
+					this.pause = true;
+					document.addEventListener('keydown', function (event) {
+						switch (event.keyCode) {
+							case _settings.KEYS.enter:
+								_this2.player1.score = 0;
+								_this2.player2.score = 0;
+								_this2.newball = false;
+								_this2.pause = false;
+						}
+					});
+				}
 			}
 		}]);
 
@@ -554,8 +614,11 @@
 	var KEYS = exports.KEYS = {
 	    a: 65, // player 2 up key
 	    z: 90, // player 2 down key
-	    up: 38, // player 1 up key
-	    down: 40, // player 1 down key
+	    k: 75, // player 1 up key
+	    m: 77, // player 1 down key
+	    n: 78, // p1 extra ball
+	    x: 88, // p2 extra ball
+	    enter: 13,
 	    spaceBar: 32 };
 
 /***/ },
@@ -596,7 +659,7 @@
 	            line.setAttributeNS(null, 'y1', 0);
 	            line.setAttributeNS(null, 'x2', this.width / 2);
 	            line.setAttributeNS(null, 'y2', this.width);
-	            line.setAttributeNS(null, 'stroke', '#ffffff');
+	            line.setAttributeNS(null, 'stroke', '#A9A9A9');
 	            line.setAttributeNS(null, 'stroke-dasharray', '20, 15');
 	            line.setAttributeNS(null, 'stroke-width', '4');
 
@@ -719,21 +782,18 @@
 	        this.direction = 1;
 
 	        this.ping = new Audio('public/sounds/pong-01.wav');
-
 	        this.reset();
 	    }
 
 	    _createClass(Ball, [{
 	        key: 'wallCollision',
 	        value: function wallCollision() {
-	            var hitLeft = this.x - this.radius <= 0;
-	            var hitRight = this.x + this.radius >= this.boardWidth;
+	            // const hitLeft = this.x - this.radius <= 0;
+	            // const hitRight = this.x + this.radius >= this.boardWidth;
 	            var hitTop = this.y - this.radius <= 0;
 	            var hitBottom = this.y + this.radius >= this.boardHeight;
 
-	            if (hitLeft || hitRight) {
-	                this.vx = -this.vx;
-	            } else if (hitTop || hitBottom) {
+	            if (hitTop || hitBottom) {
 	                this.vy = -this.vy;
 	            }
 	        }
@@ -751,6 +811,7 @@
 
 	                if (this.x + this.radius >= leftX && this.x + this.radius <= rightX && this.y >= topY && this.y <= bottomY) {
 	                    this.vx = -this.vx;
+	                    this.fill = '#ff00ff';
 	                    this.ping.play();
 	                }
 	            } else {
@@ -764,6 +825,7 @@
 
 	                if (this.x - this.radius >= _leftX && this.x - this.radius <= _rightX && this.y >= _topY && this.y <= _bottomY) {
 	                    this.vx = -this.vx;
+	                    this.fill = '#32cd32';
 	                    this.ping.play();
 	                }
 	            }
@@ -775,6 +837,7 @@
 	            this.y = this.boardHeight / 2;
 
 	            this.vy = 0;
+	            this.fill = '#ffffff';
 
 	            while (this.vy === 0) {
 	                this.vy = Math.floor(Math.random() * 10 - 5);
@@ -801,17 +864,16 @@
 	            ball.setAttributeNS(null, 'r', this.radius);
 	            ball.setAttributeNS(null, 'cx', this.x);
 	            ball.setAttributeNS(null, 'cy', this.y);
-	            ball.setAttributeNS(null, 'fill', '#ffffff');
-
+	            ball.setAttributeNS(null, 'fill', this.fill);
 	            svg.appendChild(ball);
 
 	            var rightGoal = this.x + this.radius >= this.boardWidth;
 	            var leftGoal = this.x - this.radius <= 0;
 	            if (rightGoal) {
-	                this.goal(player1);
+	                this.goal(player2);
 	                this.direction = 1;
 	            } else if (leftGoal) {
-	                this.goal(player2);
+	                this.goal(player1);
 	                this.direction = -1;
 	            }
 	        }
@@ -867,6 +929,52 @@
 	}();
 
 	exports.default = Score;
+
+/***/ },
+/* 15 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _settings = __webpack_require__(10);
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var Gameover = function () {
+	    function Gameover(x, y, size, fill, player) {
+	        _classCallCheck(this, Gameover);
+
+	        this.x = x;
+	        this.y = y;
+	        this.size = size;
+	        this.fill = fill;
+	        this.player = player;
+	    }
+
+	    _createClass(Gameover, [{
+	        key: 'render',
+	        value: function render(svg, gg) {
+	            var gameover = document.createElementNS(_settings.SVG_NS, 'text');
+	            gameover.setAttributeNS(null, 'x', this.x);
+	            gameover.setAttributeNS(null, 'y', this.y);
+	            gameover.setAttributeNS(null, 'font-family', 'Silkscreen Web');
+	            gameover.setAttributeNS(null, 'font-size', this.size);
+	            gameover.setAttributeNS(null, 'fill', this.fill);
+	            gameover.innerHTML = gg;
+	            svg.appendChild(gameover);
+	        }
+	    }]);
+
+	    return Gameover;
+	}();
+
+	exports.default = Gameover;
 
 /***/ }
 /******/ ]);

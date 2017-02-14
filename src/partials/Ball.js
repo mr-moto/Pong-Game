@@ -10,7 +10,6 @@ export default class Ball {
 
 
         this.ping = new Audio('public/sounds/pong-01.wav');
-        
         this.reset();
 
     }
@@ -68,6 +67,7 @@ export default class Ball {
         this.x = this.boardWidth / 2;
         this.y = this.boardHeight / 2;
 
+
         this.vy = 0
         this.fill = '#ffffff'
 
@@ -81,7 +81,6 @@ export default class Ball {
     goal(player) {
         player.score++;
         this.reset();
-
     }
 
 
@@ -99,6 +98,7 @@ export default class Ball {
         ball.setAttributeNS(null, 'cy', this.y);
         ball.setAttributeNS(null, 'fill', this.fill);
         svg.appendChild(ball);
+
 
         const rightGoal = this.x + this.radius >= this.boardWidth;
         const leftGoal = this.x - this.radius <= 0;
