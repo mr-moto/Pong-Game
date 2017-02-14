@@ -1,5 +1,5 @@
 # Pong Game
-hello
+
 A basic pong game using SVGs.
 
 ## Setup
