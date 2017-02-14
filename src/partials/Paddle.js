@@ -12,7 +12,6 @@ export default class Paddle {
         this.score = 0;
         this.fill = fill;
 
-
         document.addEventListener('keydown', event => {
             switch (event.keyCode) {
                 case up:
@@ -41,9 +40,6 @@ export default class Paddle {
         return [leftX, rightX, topY, bottomY];
     }
 
-
-
-
     render(svg) {
         let paddle = document.createElementNS(SVG_NS, 'rect');
         paddle.setAttributeNS(null, 'height', this.height);
@@ -54,6 +50,4 @@ export default class Paddle {
 
         svg.appendChild(paddle);
     }
-
-
 }

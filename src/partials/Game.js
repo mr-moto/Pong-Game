@@ -11,9 +11,7 @@ export default class Game {
 		this.element = element;
 		this.width = width;
 		this.height = height;
-
 		this.boardGap = 10;
-
 		this.paddleWidth = 4;
 		this.paddleHeight = 56;
 
@@ -35,7 +33,6 @@ export default class Game {
 			KEYS.down,
 			this.fill = '#ff00ff'
 		);
-
 		this.player2 = new Paddle(
 			this.height,
 			this.paddleWidth,
@@ -46,6 +43,7 @@ export default class Game {
 			KEYS.z,
 			this.fill = '#32cd32'
 		);
+
 		this.ball = new Ball(
 			this.radius,
 			this.width,
@@ -56,8 +54,6 @@ export default class Game {
 			this.width,
 			this.height,
 		)
-
-
 		this.score1 = new Score((this.width / 2) + 15, 40, 20, this.fill = '#ff00ff');
 		this.score2 = new Score((this.width / 2) - 70, 40, 20, this.fill = '#32cd32');
 
@@ -81,11 +77,9 @@ export default class Game {
 					break;
 			}
 		});
-
 	}
 
 	render() {
-
 		if (this.pause) {
 			return;
 		}
@@ -97,7 +91,6 @@ export default class Game {
 		svg.setAttributeNS(null, 'viewbox', `0 0 ${this.width} ${this.height}`);
 		this.gameElement.appendChild(svg);
 
-
 		this.board.render(svg);
 
 		this.player1.render(svg);
@@ -106,16 +99,12 @@ export default class Game {
 		this.score1.render(svg, `${this.player1.score} :P1`);
 		this.score2.render(svg, `P2: ${this.player2.score}`);
 
-
-
 		this.ball.render(svg, this.player1, this.player2);
-
 
 		if (this.newball) {
 			this.ball2.render(svg, this.player1, this.player2);
 		}
-
-		if (this.player1.score >= 2) {
+		if (this.player1.score >= 10) {
 			this.winLosep1.render(svg, 'loser');
 			this.winLosep2.render(svg, 'winner');
 			this.winner.render(svg, 'p1 wins');
@@ -130,8 +119,7 @@ export default class Game {
 				}
 			});
 		}
-
-		if (this.player2.score >= 2) {
+		if (this.player2.score >= 10) {
 			this.winLosep2.render(svg, 'loser');
 			this.winLosep1.render(svg, 'winner');
 			this.winner.render(svg, 'p2 wins');

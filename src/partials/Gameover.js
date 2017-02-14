@@ -17,9 +17,5 @@ export default class Gameover {
         gameover.setAttributeNS(null, 'fill', this.fill);
         gameover.innerHTML = gg
         svg.appendChild(gameover);
-
-
-
-
     }
 }
