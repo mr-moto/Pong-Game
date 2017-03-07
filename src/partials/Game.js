@@ -68,6 +68,10 @@ export default class Game {
 				case KEYS.spaceBar:
 					this.pause = !this.pause;
 					break;
+				case KEYS.m:
+					this.ball.radius = 10;
+					this.ball2.radius = 10;
+					break;
 				case KEYS.n:
 					this.newball = true;
 					break;
@@ -79,7 +83,6 @@ export default class Game {
 					this.player1.height = 20;
 					this.player2.height = 20;
 					break;
-
 			}
 		});
 	}
@@ -121,6 +124,11 @@ export default class Game {
 						this.player1.score = 0;
 						this.player2.score = 0;
 						this.pause = false;
+						this.newball = false;
+						this.ball.radius = 8;
+						this.ball2.radius = 8;
+						this.player1.height = 56;
+						this.player2.height = 56;
 				}
 			});
 		}
@@ -136,6 +144,11 @@ export default class Game {
 						this.player1.score = 0;
 						this.player2.score = 0;
 						this.pause = false;
+						this.newball = false;
+						this.ball.radius = 8;
+						this.ball2.radius = 8;
+						this.player1.height = 56;
+						this.player2.height = 56;
 				}
 			});
 		}

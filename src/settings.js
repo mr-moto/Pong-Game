@@ -9,4 +9,5 @@ export const KEYS = {
     enter: 13,
     spaceBar: 32, // pause
     v: 86,
+    m: 77,
 }
