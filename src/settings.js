@@ -8,4 +8,5 @@ export const KEYS = {
     b: 66,      // small ball
     enter: 13,
     spaceBar: 32, // pause
+    v: 86,
 }

@@ -75,6 +75,11 @@ export default class Game {
 					this.ball.radius = 2;
 					this.ball2.radius = 2;
 					break;
+				case KEYS.v:
+					this.player1.height = 20;
+					this.player2.height = 20;
+					break;
+
 			}
 		});
 	}
