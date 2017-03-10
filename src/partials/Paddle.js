@@ -1,5 +1,5 @@
 import { SVG_NS } from '../settings';
-import Game from './Game';
+import { KEYS } from './../settings'
 
 export default class Paddle {
 
@@ -12,21 +12,32 @@ export default class Paddle {
         this.speed = 30;
         this.score = 0;
         this.fill = fill;
+        this.pause = false;
 
 
+        document.addEventListener('keydown', event => {
+            switch (event.keyCode) {
+                case KEYS.spaceBar:
 
-        if (this.pause === false) {
-            document.addEventListener('keydown', event => {
+                    this.pause = !this.pause;
+                    break;
+            }
+        })
+
+        document.addEventListener('keydown', event => {
+            if (this.pause === false) {
                 switch (event.keyCode) {
                     case up:
+
                         this.up();
                         break;
                     case down:
                         this.down();
                         break;
                 }
-            });
-        }
+            }
+
+        });
     }
 
     up() {

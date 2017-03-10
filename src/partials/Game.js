@@ -1,6 +1,9 @@
 import { SVG_NS, KEYS } from '../settings';
 import Board from './Board';
 import Paddle from './Paddle';
+
+
+
 import Ball from './Ball';
 import Score from './Score';
 import Gameover from './Gameover';
@@ -70,11 +73,11 @@ export default class Game {
 
         this.newball = false;
 
+
         document.addEventListener('keydown', event => {
             switch (event.keyCode) {
                 case KEYS.spaceBar:
                     this.pause = !this.pause;
-                    console.log(this.pause)
                     break;
                 case KEYS.m:
                     this.ball.radius = 10;
@@ -92,10 +95,7 @@ export default class Game {
                     this.player2.height = 35;
                     break;
             }
-
-
         });
-
     }
 
 
