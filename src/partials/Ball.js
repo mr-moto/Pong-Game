@@ -29,10 +29,10 @@ export default class Ball {
             let [leftX, rightX, topY, bottomY] = paddle;
 
             if (
-                this.x + this.radius >= leftX
-                && this.x + this.radius <= rightX
-                && this.y >= topY
-                && this.y <= bottomY
+                this.x + this.radius >= leftX &&
+                this.x + this.radius <= rightX &&
+                this.y >= topY &&
+                this.y <= bottomY
             ) {
                 this.vx = -this.vx;
                 this.fill = '#ff00ff';
@@ -43,10 +43,10 @@ export default class Ball {
             let [leftX, rightX, topY, bottomY] = paddle;
 
             if (
-                this.x - this.radius >= leftX
-                && this.x - this.radius <= rightX
-                && this.y >= topY
-                && this.y <= bottomY
+                this.x - this.radius >= leftX &&
+                this.x - this.radius <= rightX &&
+                this.y >= topY &&
+                this.y <= bottomY
             ) {
                 this.vx = -this.vx;
                 this.fill = '#32cd32';

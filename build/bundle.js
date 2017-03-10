@@ -96,7 +96,7 @@
 
 
 	// module
-	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/ \n   v2.0 | 20110126\n   License: none (public domain)\n*/\n\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed, \nfigure, figcaption, footer, header, hgroup, \nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n\tmargin: 0;\n\tpadding: 0;\n\tborder: 0;\n\tfont-size: 100%;\n\tfont: inherit;\n\tvertical-align: baseline;\n}\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure, \nfooter, header, hgroup, menu, nav, section {\n\tdisplay: block;\n}\nbody {\n\tline-height: 1;\n}\nol, ul {\n\tlist-style: none;\n}\nblockquote, q {\n\tquotes: none;\n}\nblockquote:before, blockquote:after,\nq:before, q:after {\n\tcontent: '';\n\tcontent: none;\n}\ntable {\n\tborder-collapse: collapse;\n\tborder-spacing: 0;\n}\n\n/**\n * FONTS\n */\n\n@font-face {\n  font-family: 'Silkscreen Web';\n  src: url(" + __webpack_require__(4) + ");\n  src: url(" + __webpack_require__(4) + "?#iefix) format('embedded-opentype'),\n    url(" + __webpack_require__(5) + ") format('woff'),\n    url(" + __webpack_require__(6) + ") format('truetype'),\n    url(" + __webpack_require__(7) + "#silkscreennormal) format('svg');\n  font-weight: normal;\n  font-style: normal;\n}\n\n/**\n * GAME\n */\n\nhtml {\n  font-size: 16px;\n  text-transform: uppercase;\n}\n\nbody {\n  align-items: center;\n  display: flex;\n  font-family: 'Silkscreen Web', monotype;\n  height: 100vh;\n  justify-content: center;\n  width: 100%;\n}\n\nh1 {\n  font-size: 2.5rem;\n  margin-bottom: 1rem; \n  text-align: center;\n}\n#controls {\n  display: flex;\n  justify-content: space-between;\n  line-height: 2;\n }\n .text {\n   color: red;\n }", ""]);
+	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/ \n   v2.0 | 20110126\n   License: none (public domain)\n*/\n\nhtml,\nbody,\ndiv,\nspan,\napplet,\nobject,\niframe,\nh1,\nh2,\nh3,\nh4,\nh5,\nh6,\np,\nblockquote,\npre,\na,\nabbr,\nacronym,\naddress,\nbig,\ncite,\ncode,\ndel,\ndfn,\nem,\nimg,\nins,\nkbd,\nq,\ns,\nsamp,\nsmall,\nstrike,\nstrong,\nsub,\nsup,\ntt,\nvar,\nb,\nu,\ni,\ncenter,\ndl,\ndt,\ndd,\nol,\nul,\nli,\nfieldset,\nform,\nlabel,\nlegend,\ntable,\ncaption,\ntbody,\ntfoot,\nthead,\ntr,\nth,\ntd,\narticle,\naside,\ncanvas,\ndetails,\nembed,\nfigure,\nfigcaption,\nfooter,\nheader,\nhgroup,\nmenu,\nnav,\noutput,\nruby,\nsection,\nsummary,\ntime,\nmark,\naudio,\nvideo {\n    margin: 0;\n    padding: 0;\n    border: 0;\n    font-size: 100%;\n    font: inherit;\n    vertical-align: baseline;\n}\n\n\n/* HTML5 display-role reset for older browsers */\n\narticle,\naside,\ndetails,\nfigcaption,\nfigure,\nfooter,\nheader,\nhgroup,\nmenu,\nnav,\nsection {\n    display: block;\n}\n\nbody {\n    line-height: 1;\n}\n\nol,\nul {\n    list-style: none;\n}\n\nblockquote,\nq {\n    quotes: none;\n}\n\nblockquote:before,\nblockquote:after,\nq:before,\nq:after {\n    content: '';\n    content: none;\n}\n\ntable {\n    border-collapse: collapse;\n    border-spacing: 0;\n}\n\n\n/**\n * FONTS\n */\n\n@font-face {\n    font-family: 'Silkscreen Web';\n    src: url(" + __webpack_require__(4) + ");\n    src: url(" + __webpack_require__(4) + "?#iefix) format('embedded-opentype'), url(" + __webpack_require__(5) + ") format('woff'), url(" + __webpack_require__(6) + ") format('truetype'), url(" + __webpack_require__(7) + "#silkscreennormal) format('svg');\n    font-weight: normal;\n    font-style: normal;\n}\n\n\n/**\n * GAME\n */\n\nhtml {\n    font-size: 16px;\n    text-transform: uppercase;\n}\n\nbody {\n    align-items: center;\n    display: flex;\n    font-family: 'Silkscreen Web', monotype;\n    height: 100vh;\n    justify-content: center;\n    width: 100%;\n}\n\nh1 {\n    font-size: 2.5rem;\n    margin-bottom: 1rem;\n    text-align: center;\n}\n\n#controls {\n    display: flex;\n    justify-content: space-between;\n    line-height: 2;\n}\n\n.text {\n    color: red;\n}\n\n#game {\n    box-shadow: 0px 0px 116px -28px rgba(0, 0, 0, 1);\n}", ""]);
 
 	// exports
 
@@ -440,7 +440,7 @@
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	    value: true
 	});
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -472,119 +472,138 @@
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 	var Game = function () {
-		function Game(element, width, height) {
-			var _this = this;
+	    function Game(element, width, height) {
+	        _classCallCheck(this, Game);
 
-			_classCallCheck(this, Game);
+	        this.element = element;
+	        this.width = width;
+	        this.height = height;
+	        this.boardGap = 10;
+	        this.paddleWidth = 4;
+	        this.paddleHeight = 56;
 
-			this.element = element;
-			this.width = width;
-			this.height = height;
-			this.boardGap = 10;
-			this.paddleWidth = 4;
-			this.paddleHeight = 56;
+	        this.radius = 8;
 
-			this.radius = 8;
+	        this.gameElement = document.getElementById(this.element);
 
-			this.gameElement = document.getElementById(this.element);
+	        this.pause = false;
 
-			this.pause = false;
+	        this.board = new _Board2.default(this.width, this.height);
 
-			this.board = new _Board2.default(this.width, this.height);
+	        this.player1 = new _Paddle2.default(this.height, this.paddleWidth, this.paddleHeight, this.width - this.boardGap - this.paddleWidth, (this.height - this.paddleHeight) / 2, _settings.KEYS.up, _settings.KEYS.down, this.fill = '#ff00ff');
+	        this.player2 = new _Paddle2.default(this.height, this.paddleWidth, this.paddleHeight, this.boardGap, (this.height - this.paddleHeight) / 2, _settings.KEYS.a, _settings.KEYS.z, this.fill = '#32cd32');
 
-			this.player1 = new _Paddle2.default(this.height, this.paddleWidth, this.paddleHeight, this.width - this.boardGap - this.paddleWidth, (this.height - this.paddleHeight) / 2, _settings.KEYS.up, _settings.KEYS.down, this.fill = '#ff00ff');
-			this.player2 = new _Paddle2.default(this.height, this.paddleWidth, this.paddleHeight, this.boardGap, (this.height - this.paddleHeight) / 2, _settings.KEYS.a, _settings.KEYS.z, this.fill = '#32cd32');
+	        this.ball = new _Ball2.default(this.radius, this.width, this.height);
+	        this.ball2 = new _Ball2.default(this.radius, this.width, this.height);
 
-			this.ball = new _Ball2.default(this.radius, this.width, this.height);
-			this.ball2 = new _Ball2.default(this.radius, this.width, this.height);
-			this.score1 = new _Score2.default(this.width / 2 + 15, 40, 20, this.fill = '#ff00ff');
-			this.score2 = new _Score2.default(this.width / 2 - 70, 40, 20, this.fill = '#32cd32');
+	        this.score1 = new _Score2.default(this.width / 2 + 15, 40, 20, this.fill = '#ff00ff');
+	        this.score2 = new _Score2.default(this.width / 2 - 70, 40, 20, this.fill = '#32cd32');
 
-			this.winLosep1 = new _Gameover2.default(this.width * .10, 40, 20, this.fill = '#32cd32');
-			this.winLosep2 = new _Gameover2.default(this.width * 0.75, 40, 20, this.fill = '#ff00ff');
-			this.winner = new _Gameover2.default(this.width / 2 - 50, this.height / 2, 20, this.fill = '#FF0');
-			this.restart = new _Gameover2.default(this.width / 2 - 170, this.height * 0.75, 20, this.fill = '#FF0');
+	        this.winLosep1 = new _Gameover2.default(this.width * .10, 40, 20, this.fill = '#32cd32');
+	        this.winLosep2 = new _Gameover2.default(this.width * 0.75, 40, 20, this.fill = '#ff00ff');
+	        this.winner = new _Gameover2.default(this.width / 2 - 50, this.height / 2, 20, this.fill = '#FF0');
+	        this.restart = new _Gameover2.default(this.width / 2 - 170, this.height * 0.75, 20, this.fill = '#FF0');
 
-			this.newball = false;
-			document.addEventListener('keydown', function (event) {
-				switch (event.keyCode) {
-					case _settings.KEYS.spaceBar:
-						_this.pause = !_this.pause;
-						break;
-					case _settings.KEYS.n:
-						_this.newball = true;
-						break;
-					case _settings.KEYS.b:
-						_this.ball.radius = 2;
-						_this.ball2.radius = 2;
-						break;
-				}
-			});
-		}
+	        this.newball = false;
 
-		_createClass(Game, [{
-			key: 'render',
-			value: function render() {
-				var _this2 = this;
+	        function testtest() {
+	            switch (event.keyCode) {
+	                case _settings.KEYS.spaceBar:
+	                    this.pause = !this.pause;
+	                    break;
+	                case _settings.KEYS.m:
+	                    this.ball.radius = 10;
+	                    this.ball2.radius = 10;
+	                    break;
+	                case _settings.KEYS.n:
+	                    this.newball = true;
+	                    break;
+	                case _settings.KEYS.b:
+	                    this.ball.radius = 2;
+	                    this.ball2.radius = 2;
+	                    break;
+	                case _settings.KEYS.v:
+	                    this.player1.height = 35;
+	                    this.player2.height = 35;
+	                    break;
+	            }
+	        };
+	        document.addEventListener('keydown', testtest);
+	    }
 
-				if (this.pause) {
-					return;
-				}
-				this.gameElement.innerHTML = '';
+	    _createClass(Game, [{
+	        key: 'render',
+	        value: function render() {
+	            var _this = this;
 
-				var svg = document.createElementNS(_settings.SVG_NS, 'svg');
-				svg.setAttributeNS(null, 'width', this.width);
-				svg.setAttributeNS(null, 'height', this.height);
-				svg.setAttributeNS(null, 'viewbox', '0 0 ' + this.width + ' ' + this.height);
-				this.gameElement.appendChild(svg);
+	            if (this.pause) {
+	                return;
+	            }
+	            this.gameElement.innerHTML = '';
 
-				this.board.render(svg);
+	            var svg = document.createElementNS(_settings.SVG_NS, 'svg');
+	            svg.setAttributeNS(null, 'width', this.width);
+	            svg.setAttributeNS(null, 'height', this.height);
+	            svg.setAttributeNS(null, 'viewbox', '0 0 ' + this.width + ' ' + this.height);
+	            this.gameElement.appendChild(svg);
 
-				this.player1.render(svg);
-				this.player2.render(svg);
+	            this.board.render(svg);
 
-				this.score1.render(svg, this.player1.score + ' :P1');
-				this.score2.render(svg, 'P2: ' + this.player2.score);
+	            this.player1.render(svg);
+	            this.player2.render(svg);
 
-				this.ball.render(svg, this.player1, this.player2);
+	            this.score1.render(svg, this.player1.score + ' :P1');
+	            this.score2.render(svg, 'P2: ' + this.player2.score);
 
-				if (this.newball) {
-					this.ball2.render(svg, this.player1, this.player2);
-				}
-				if (this.player1.score >= 10) {
-					this.winLosep1.render(svg, 'loser');
-					this.winLosep2.render(svg, 'winner');
-					this.winner.render(svg, 'p1 wins');
-					this.restart.render(svg, 'press enter to play again');
-					this.pause = true;
-					document.addEventListener('keydown', function (event) {
-						switch (event.keyCode) {
-							case _settings.KEYS.enter:
-								_this2.player1.score = 0;
-								_this2.player2.score = 0;
-								_this2.pause = false;
-						}
-					});
-				}
-				if (this.player2.score >= 10) {
-					this.winLosep2.render(svg, 'loser');
-					this.winLosep1.render(svg, 'winner');
-					this.winner.render(svg, 'p2 wins');
-					this.restart.render(svg, 'press enter to play again');
-					this.pause = true;
-					document.addEventListener('keydown', function (event) {
-						switch (event.keyCode) {
-							case _settings.KEYS.enter:
-								_this2.player1.score = 0;
-								_this2.player2.score = 0;
-								_this2.pause = false;
-						}
-					});
-				}
-			}
-		}]);
+	            this.ball.render(svg, this.player1, this.player2);
 
-		return Game;
+	            if (this.newball) {
+	                this.ball2.render(svg, this.player1, this.player2);
+	            }
+	            if (this.player1.score >= 10) {
+	                this.winLosep1.render(svg, 'loser');
+	                this.winLosep2.render(svg, 'winner');
+	                this.winner.render(svg, 'p1 wins');
+	                this.restart.render(svg, 'press enter to play again');
+	                this.pause = true;
+	                document.addEventListener('keydown', function (event) {
+	                    switch (event.keyCode) {
+	                        case _settings.KEYS.enter:
+	                            _this.player1.score = 0;
+	                            _this.player2.score = 0;
+	                            _this.pause = false;
+	                            _this.newball = false;
+	                            _this.ball.radius = 8;
+	                            _this.ball2.radius = 8;
+	                            _this.player1.height = 56;
+	                            _this.player2.height = 56;
+	                    }
+	                });
+	            }
+	            if (this.player2.score >= 10) {
+	                this.winLosep2.render(svg, 'loser');
+	                this.winLosep1.render(svg, 'winner');
+	                this.winner.render(svg, 'p2 wins');
+	                this.restart.render(svg, 'press enter to play again');
+	                this.pause = true;
+	                document.addEventListener('keydown', function (event) {
+	                    switch (event.keyCode) {
+	                        case _settings.KEYS.enter:
+	                            _this.player1.score = 0;
+	                            _this.player2.score = 0;
+	                            _this.pause = false;
+	                            _this.newball = false;
+	                            _this.ball.radius = 8;
+	                            _this.ball2.radius = 8;
+	                            _this.player1.height = 56;
+	                            _this.player2.height = 56;
+	                    }
+	                });
+	            }
+	        }
+	    }]);
+
+	    return Game;
 	}();
 
 	exports.default = Game;
@@ -607,7 +626,10 @@
 	    n: 78, //  extra ball
 	    b: 66, // small ball
 	    enter: 13,
-	    spaceBar: 32 };
+	    spaceBar: 32, // pause
+	    v: 86,
+	    m: 77
+	};
 
 /***/ },
 /* 11 */
@@ -692,6 +714,7 @@
 	        this.fill = fill;
 
 	        document.addEventListener('keydown', function (event) {
+
 	            switch (event.keyCode) {
 	                case up:
 	                    _this.up();
