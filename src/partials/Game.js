@@ -66,14 +66,18 @@ export default class Game {
         this.score1 = new Score((this.width / 2) + 15, 40, 20, this.fill = '#ff00ff');
         this.score2 = new Score((this.width / 2) - 70, 40, 20, this.fill = '#32cd32');
 
-        this.winLosep1 = new Gameover((this.width * .10), 40, 20, this.fill = '#32cd32');
-        this.winLosep2 = new Gameover((this.width * 0.75), 40, 20, this.fill = '#ff00ff');
+        this.winLosep2 = new Gameover((this.width * .10), 40, 20, this.fill = '#32cd32');
+        this.winLosep1 = new Gameover((this.width * 0.75), 40, 20, this.fill = '#ff00ff');
         this.winner = new Gameover((this.width / 2) - 50, (this.height / 2), 20, this.fill = '#FF0');
         this.restart = new Gameover((this.width / 2) - 170, (this.height * 0.75), 20, this.fill = '#FF0');
 
         this.newball = false;
 
+        this.gameKeyCodes();
 
+    }
+
+    gameKeyCodes() {
         document.addEventListener('keydown', event => {
             switch (event.keyCode) {
                 case KEYS.spaceBar:
@@ -98,7 +102,35 @@ export default class Game {
         });
     }
 
-
+    p1Win(svg) {
+        this.winLosep2.render(svg, 'loser');
+        this.winLosep1.render(svg, 'winner');
+        this.winner.render(svg, 'p1 wins');
+        this.restart.render(svg, 'press enter to play again');
+        this.pause = true;
+    }
+    p2Win(svg) {
+        this.winLosep1.render(svg, 'loser');
+        this.winLosep2.render(svg, 'winner');
+        this.winner.render(svg, 'p2 wins');
+        this.restart.render(svg, 'press enter to play again');
+        this.pause = true;
+    }
+    restartOnEnter() {
+        document.addEventListener('keydown', event => {
+            switch (event.keyCode) {
+                case KEYS.enter:
+                    this.player1.score = 0;
+                    this.player2.score = 0;
+                    this.pause = false;
+                    this.newball = false;
+                    this.ball.radius = 8;
+                    this.ball2.radius = 8;
+                    this.player1.height = 56;
+                    this.player2.height = 56;
+            }
+        });
+    }
     render() {
 
         if (this.pause) {
@@ -126,44 +158,12 @@ export default class Game {
             this.ball2.render(svg, this.player1, this.player2);
         }
         if (this.player1.score >= 10) {
-            this.winLosep1.render(svg, 'loser');
-            this.winLosep2.render(svg, 'winner');
-            this.winner.render(svg, 'p1 wins');
-            this.restart.render(svg, 'press enter to play again');
-            this.pause = true;
-            document.addEventListener('keydown', event => {
-                switch (event.keyCode) {
-                    case KEYS.enter:
-                        this.player1.score = 0;
-                        this.player2.score = 0;
-                        this.pause = false;
-                        this.newball = false;
-                        this.ball.radius = 8;
-                        this.ball2.radius = 8;
-                        this.player1.height = 56;
-                        this.player2.height = 56;
-                }
-            });
+            this.p1Win(svg);
+            this.restartOnEnter();
         }
         if (this.player2.score >= 10) {
-            this.winLosep2.render(svg, 'loser');
-            this.winLosep1.render(svg, 'winner');
-            this.winner.render(svg, 'p2 wins');
-            this.restart.render(svg, 'press enter to play again');
-            this.pause = true;
-            document.addEventListener('keydown', event => {
-                switch (event.keyCode) {
-                    case KEYS.enter:
-                        this.player1.score = 0;
-                        this.player2.score = 0;
-                        this.pause = false;
-                        this.newball = false;
-                        this.ball.radius = 8;
-                        this.ball2.radius = 8;
-                        this.player1.height = 56;
-                        this.player2.height = 56;
-                }
-            });
+            this.p2Win(svg);
+            this.restartOnEnter();
         }
     }
 

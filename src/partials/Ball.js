@@ -13,8 +13,6 @@ export default class Ball {
     }
 
     wallCollision() {
-        // const hitLeft = this.x - this.radius <= 0;
-        // const hitRight = this.x + this.radius >= this.boardWidth;
         const hitTop = this.y - this.radius <= 0;
         const hitBottom = this.y + this.radius >= this.boardHeight;
 
@@ -22,32 +20,35 @@ export default class Ball {
             this.vy = -this.vy;
         }
     }
+    leftPaddleCollisionOccured(paddle) {
+        let [leftX, rightX, topY, bottomY] = paddle;
+        return this.x + this.radius >= leftX &&
+            this.x + this.radius <= rightX &&
+            this.y >= topY &&
+            this.y <= bottomY
+    }
+    rightPaddleCollisionOccured(paddle) {
+        let [leftX, rightX, topY, bottomY] = paddle;
+        return this.x - this.radius >= leftX &&
+            this.x - this.radius <= rightX &&
+            this.y >= topY &&
+            this.y <= bottomY
+    }
 
     paddleCollision(player1, player2) {
         if (this.vx > 0) {
             let paddle = player1.coordinates(player1.x, player1.y, player1.width, player1.height);
-            let [leftX, rightX, topY, bottomY] = paddle;
 
-            if (
-                this.x + this.radius >= leftX &&
-                this.x + this.radius <= rightX &&
-                this.y >= topY &&
-                this.y <= bottomY
-            ) {
+            if (this.leftPaddleCollisionOccured(paddle)) {
                 this.vx = -this.vx;
                 this.fill = '#ff00ff';
                 this.ping.play();
             }
         } else {
             let paddle = player2.coordinates(player2.x, player2.y, player2.width, player2.height);
-            let [leftX, rightX, topY, bottomY] = paddle;
 
-            if (
-                this.x - this.radius >= leftX &&
-                this.x - this.radius <= rightX &&
-                this.y >= topY &&
-                this.y <= bottomY
-            ) {
+
+            if (this.rightPaddleCollisionOccured(paddle)) {
                 this.vx = -this.vx;
                 this.fill = '#32cd32';
                 this.ping.play();
