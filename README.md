@@ -53,3 +53,12 @@ introduction to ES2015, babel and webpack has been a littl challenging due to th
 * better design
 * Paused on start
 
+---
+
+# CHANGELOG 
+## 2017-03-10
+* Refactored code to be more modular
+
+## 2017-02-09
+* Project Hand-in
+
