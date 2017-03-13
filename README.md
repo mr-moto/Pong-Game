@@ -48,16 +48,22 @@ introduction to ES2015, babel and webpack has been a littl challenging due to th
 
 ## TODO
 * Fix 2nd ball reset on Gameover
-* implement speed
-* implement powerups inside the game so when a ball touches a power up icon that player has the option to use it.
-* better design
+* Implement speed
+* Implement powerups inside the game so when a ball touches a power up icon that player has the option to use it.
+* Better design
 * Paused on start
+
+* Change ball angle/speed depending on where it hits the paddle
+* Implement CPU
+* organize data in arrays and objects
 
 ---
 
 # CHANGELOG 
 ## 2017-03-10
 * Refactored code to be more modular
+* Paddle size change on key press
+* Fixed issue with paddles still accepting key inputs while paused
 
 ## 2017-02-09
 * Project Hand-in
